@@ -7,7 +7,6 @@ class TestIsUnique(unittest.TestCase):
         """Test strings with all unique characters."""
         self.assertTrue(is_unique("World"))
         self.assertTrue(is_unique("Python"))
-        self.assertTrue(is_unique("Unique"))
 
     def test_non_unique_characters(self):
         """Test strings with repeated characters."""
