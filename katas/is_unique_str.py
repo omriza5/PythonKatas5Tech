@@ -8,6 +8,13 @@ def is_unique(string):
     Returns:
         True if all characters are unique, False otherwise
     """
+    seen = set()
+    for char in string:
+        lower_char = char.lower()
+        if lower_char in seen:
+            return False
+        seen.add(lower_char)
+    
     return True
 
 
