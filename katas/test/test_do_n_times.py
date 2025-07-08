@@ -11,6 +11,7 @@ class TestDoNTimes(unittest.TestCase):
         self.assertEqual(do_n_times(say_hello,0), 0)
         self.assertEqual(do_n_times(say_hello,1), 1)
         self.assertEqual(do_n_times(say_hello,2), 2)
+        self.assertEqual(do_n_times(say_hello,-5), 0)
 
     def test_do_n_times_argument_validation(self):
         """
