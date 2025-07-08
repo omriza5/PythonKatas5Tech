@@ -1,0 +1,3 @@
+.venv
+/katas/__pycache__
+/katas/test/__pycache__
