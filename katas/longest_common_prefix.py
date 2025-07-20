@@ -8,7 +8,17 @@ def longest_common_prefix(strs):
     Returns:
         the longest common prefix, or an empty string if none exists
     """
-    return ""
+    longest_prefix=""
+    # Find the minimum length of the strings to avoid index errors
+    limit = min(len(s) for s in strs) if strs else 0
+    
+    for i in range(limit):
+        char_set = set()
+        for j in range(len(strs)):
+            char_set.add(strs[j][i])
+        if len(char_set) == 1:
+            longest_prefix += char_set.pop()
+    return longest_prefix
 
 
 if __name__ == '__main__':
@@ -21,3 +31,4 @@ if __name__ == '__main__':
     print(f"Longest Common Prefix: {longest_common_prefix(test2)}")  # Output: ""
     print(f"Longest Common Prefix: {longest_common_prefix(test3)}")  # Output: "inter"
     print(f"Longest Common Prefix: {longest_common_prefix(test4)}")  # Output: "ap"
+    
