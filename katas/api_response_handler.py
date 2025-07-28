@@ -25,7 +25,27 @@ def extract_user_data(api_response: str) -> List[Dict[str, str]]:
     Raises:
         ValueError: if the JSON is invalid
     """
-    return []
+    try:
+        data = json.loads(api_response)
+    except json.JSONDecodeError:
+        raise ValueError("Invalid JSON")
+    
+    if not data or 'users' not in data:
+        return []
+    
+    users_data = []
+    users = data['users']
+    
+    for user in users:
+        users_data.append({
+            "id": user.get('id', None),
+            "name": user.get('name', None),
+            "email": user.get('email', None),
+            "company_name": (user.get('company') or {}).get('name', None),
+            "city": (user.get('address') or {}).get('city', None)
+        })
+    
+    return users_data
 
 
 if __name__ == "__main__":
