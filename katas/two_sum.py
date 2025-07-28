@@ -10,8 +10,22 @@ def two_sum(numbers, target):
         a list containing the indices of the two numbers that add up to target,
         or an empty list if no such pair exists
     """
+    # for i in range(len(numbers) -1):
+    #     for j in range(i, len(numbers)-1):
+    #         temp_sum = numbers[i] + numbers[j+1]
+    #         if temp_sum == target:
+    #             return [i, j+1]
+    # return []
+    
+    indexes_dict={}
+    for i in range(len(numbers)):
+        temp_subtraction = target -numbers[i]
+        if temp_subtraction not in indexes_dict:
+            indexes_dict[numbers[i]] = i
+        else:
+            return [indexes_dict[temp_subtraction],i]
+            
     return []
-
 
 if __name__ == '__main__':
     test1 = [2, 7, 11, 15]
