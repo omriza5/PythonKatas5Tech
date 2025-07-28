@@ -11,9 +11,38 @@ def is_anagram(s1, s2):
     Returns:
         True if the strings are anagrams, False otherwise
     """
-    return False
+    s1 = ''.join(s1.split()).lower()
+    s2= ''.join(s2.split()).lower()
+    
+    if len(s1) != len(s2):
+        return False
+    
+    s1_letters_dic = count_letters_map(s1)
+    s2_letters_dic = count_letters_map(s2)
+    
+    
+    for letter in s1_letters_dic:
+        if letter not in s2_letters_dic:
+            return False
+        
+        if s1_letters_dic[letter] != s2_letters_dic[letter]:
+            return False
+        
+    return True
 
 
+
+def count_letters_map(word):
+    letters={}
+    for letter in word:
+        if letter in letters:
+            letters[letter] += 1
+        else:
+            letters[letter] = 1
+    
+    return letters
+         
+    
 if __name__ == '__main__':
     test1 = ("listen", "silent")
     test2 = ("elbow", "below")
