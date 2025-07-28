@@ -8,7 +8,12 @@ def count_true_values(array):
     Returns:
         the count of True values in the list
     """
-    return 0
+    counter= 0
+    
+    for value in array:
+        if value:
+            counter += 1
+    return counter
 
 
 if __name__ == '__main__':
