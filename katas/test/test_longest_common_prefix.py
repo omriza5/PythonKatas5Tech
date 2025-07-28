@@ -1,27 +1,30 @@
-import pytest
+import unittest
 from katas.longest_common_prefix import longest_common_prefix
 
-def test_longest_common_prefix():
-    # Test case 1: Normal case with a common prefix
-    assert longest_common_prefix(["flower", "flow", "flight"]) == "fl"
+class TestLongestCommonPrefix(unittest.TestCase):
+    def test_normal_case_with_common_prefix(self):
+        self.assertEqual(longest_common_prefix(["flower", "flow", "flight"]), "fl")
 
-    # Test case 2: No common prefix
-    assert longest_common_prefix(["dog", "racecar", "car"]) == ""
+    def test_no_common_prefix(self):
+        self.assertEqual(longest_common_prefix(["dog", "racecar", "car"]), "")
 
-    # Test case 3: Common prefix with longer strings
-    assert longest_common_prefix(["interspecies", "interstellar", "interstate"]) == "inters"
+    def test_common_prefix_with_longer_strings(self):
+        self.assertEqual(longest_common_prefix(["interspecies", "interstellar", "interstate"]), "inters")
 
-    # Test case 4: Common prefix with short strings
-    assert longest_common_prefix(["apple", "apricot", "ape"]) == "ap"
+    def test_common_prefix_with_short_strings(self):
+        self.assertEqual(longest_common_prefix(["apple", "apricot", "ape"]), "ap")
 
-    # Test case 5: Single string in the list
-    assert longest_common_prefix(["single"]) == "single"
+    def test_single_string_in_list(self):
+        self.assertEqual(longest_common_prefix(["single"]), "single")
 
-    # Test case 6: Empty list
-    assert longest_common_prefix([]) == ""
+    def test_empty_list(self):
+        self.assertEqual(longest_common_prefix([]), "")
 
-    # Test case 7: List with empty strings
-    assert longest_common_prefix(["", "", ""]) == ""
+    def test_list_with_empty_strings(self):
+        self.assertEqual(longest_common_prefix(["", "", ""]), "")
 
-    # Test case 8: Mixed empty and non-empty strings
-    assert longest_common_prefix(["", "nonempty", "none"]) == ""
+    def test_mixed_empty_and_nonempty_strings(self):
+        self.assertEqual(longest_common_prefix(["", "nonempty", "none"]), "")
+
+if __name__ == "__main__":
+    unittest.main()
