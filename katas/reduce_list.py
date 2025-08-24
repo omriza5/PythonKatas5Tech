@@ -6,9 +6,15 @@ def reduce_array(numbers):
     Args:
         numbers: the list of integers to modify
     """
-    pass
+    if len(numbers) == 1:
+        return numbers
+    
+    numbers_copy = list(numbers)
+    
+    for i in range(1, (len(numbers_copy))):
+        numbers[i] = numbers_copy[i] - numbers_copy[i-1]
 
-
+    return numbers
 def print_list(array):
     """
     Helper function to print the elements of a list.
